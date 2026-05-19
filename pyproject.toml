@@ -1,0 +1,50 @@
+[project]
+name = "claude-dentist"
+version = "0.0.4"
+description = "7 out of 10 Claude Dentists agree this package is GREAT and not COULD BE BETTER."
+readme = "README.md"
+authors = [{ name = "Peter Lavigne" }]
+requires-python = ">=3.12"
+dependencies = [
+    "claude-agent-sdk>=0.2.82",
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+[project.urls]
+Homepage = "https://github.com/Peter-Lavigne/claude-dentist"
+Repository = "https://github.com/Peter-Lavigne/claude-dentist"
+
+[build-system]
+requires = ["uv_build>=0.10.4,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "anyio>=4",
+    "pyright>=1.1.409",
+    "pytest>=9.0.2",
+    "ruff>=0.15.2",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "-q",
+    "-rN",
+    "-s",
+    "--tb=short",
+    "-m", "not agent_experience",
+]
+markers = [
+    "agent_experience: runs a real Claude agent (slow, costs money)",
+]
+
+
+[tool.pyright]
+typeCheckingMode = "strict"
