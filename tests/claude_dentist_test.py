@@ -2,7 +2,6 @@ import textwrap
 from pathlib import Path
 
 import pytest
-
 from claude_dentist import claude_dentist
 
 CLAUDE_DENTIST_ROOT = Path(__file__).parent.parent
